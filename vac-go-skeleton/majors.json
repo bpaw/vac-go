@@ -1,0 +1,23 @@
+{
+  "majors": {
+    "CSE": [
+      "8A - Intro to Java part 1",
+      "8B - Intro to Java part 2",
+      "11 - Intro to Java accelerated pace",
+      "12 - Intro to Data Strutures",
+      "30 - ",
+      "100 - Advanced Data Structures",
+      "101 - Algorithms",
+      "105 - ",
+      "110 - Intro to Software Engineering",
+      "170 - Human-Computer Interaction & design"
+    ],
+    "COMM": [
+      "10 - Intro to Communications",
+      "105G - Video Game Theory"
+    ],
+    "MAE": [
+      "181 - Space Form"
+    ]
+  }
+}

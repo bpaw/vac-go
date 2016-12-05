@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google Analytics Content Experiment code -->
+    <!-- <script>function utmx_section(){}function utmx(){}(function(){var
+    k='133577903-0',d=document,l=d.location,c=d.cookie;
+    if(l.search.indexOf('utm_expid='+k)>0)return;
+    function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+    indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+    length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+    '<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+    '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+    '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+    valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+    '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+    </script><script>utmx('url','A/B');</script> -->
+    <!-- End of Google Analytics Content Experiment code -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAC-GO | Add</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link href="./css/materialize.min.css" rel="stylesheet" />
+    <link href="./css/app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper blue">
+          <span class="brand-logo center">VAC-Go!</span>
+          <ul id="nav-mobile" class="right">
+            <li><a class="logoutBtn">Logout</a></li>
+          </ul>
+          <ul class="left">
+            <li class="vac-go-welcome">Welcome, <b id="username"></b>!</li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="row" id="add-post-row">
+        <div class="col l12 m12 s12">
+          <div class="card large white" id="add-post-card-large">
+            <div class="card-content">
+              <h5 class="card-title">New Post</h5>
+              <form id="add-post-form" action="#">
+                <div id="quarter">
+                  <h6 class="vac-go-bold">Select a Quarter:</h6>
+                  <div class="row">
+                    <span class="quarter-opt col l3 m3 s6">
+                      <input class="with-gap" name="quarter" type="radio" id="fall" />
+                      <label for="fall">Fall</label>
+                    </span>
+                    <span class="quarter-opt col l3 m3 s6">
+                      <input class="with-gap" name="quarter" type="radio" id="winter" />
+                      <label for="winter">Winter</label>
+                    </span>
+                    <span class="quarter-opt col l3 m2 s6">
+                      <input class="with-gap" name="quarter" type="radio" id="spring" />
+                      <label for="spring">Spring</label>
+                    </span>
+                    <span class="quarter-opt col l3 m4 s6">
+                      <input class="with-gap" name="quarter" type="radio" id="summer" />
+                      <label for="summer">Summer (I/II)</label>
+                    </span>
+                  </div>
+                </div>
+                <div id="courses">
+                  <h6 class="vac-go-bold">Courses:</h6>
+                </div>
+                <div id="activities">
+                  <h6 class="vac-go-bold">Activities:</h6>
+                </div>
+                <div id="body" class="row">
+                  <h6 class="vac-go-bold" style="margin-left:11px">Explain course plan:</h6>
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="post-body" class="materialize-textarea"></textarea>
+                    <label for="post-body">Post Body</label>
+                  </div>
+                </div>
+
+                <!-- Template for adding a course -->
+                <div class="course row hide" id="course-template">
+                  <div class="input-field col l3 m3 s12">
+                    <i class="material-icons prefix">school</i>
+                    <input type="text" class="depts"/>
+                    <label class="course-dept" for="depts">Dept.</label>
+                  </div>
+                  <div class="input-field col l8 m8 s11">
+                    <i class="material-icons prefix">chrome_reader_mode</i>
+                    <select disabled>
+                      <option disabled selected>Course</option>
+                    </select>
+                  </div>
+                  <div class="input-field col l1 m1 s1 removeCourse">
+                    <i class="material-icons">delete</i>
+                  </div>
+                </div>
+
+                <!-- Template for adding an activity -->
+                <div class="activity row hide" id="activity-template">
+                  <div class="input-field col l8 m7 s12">
+                    <i class="material-icons prefix">business_center</i>
+                    <input id="activity" type="text" />
+                    <label class="activity-name" for="activity">Activity Name</label>
+                  </div>
+                  <div class="input-field col l3 m4 s11">
+                    <i class="material-icons prefix">schedule</i>
+                    <input id="hours-busy" type="number" min="0" max="168" class="validate" />
+                    <label class="activity-time" for="hours-busy">Hours Busy</label>
+                  </div>
+                  <div class="input-field col l1 m1 s1 removeActivity">
+                    <i class="material-icons">delete</i>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div class="card-action">
+              <button id="addActivity" class="waves-effect waves-light btn-flat left col l2 m2 s6">Add Activity</button>
+              <button id="addCourse" class="waves-effect waves-light btn-flat left col l2 m2 s6">Add Course</button>
+              <button id="submit-post" class="waves-effect waves-green btn-flat right col l2 m2 s6">Submit</button>
+              <button id="cancel-post" class="btn waves-effect waves-red btn-flat right col l2 m2 s6">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/materialize.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/add-post.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-87246958-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
